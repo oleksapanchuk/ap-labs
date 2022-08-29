@@ -1,5 +1,7 @@
 package com.panchuk.lab2.model;
 
+import com.panchuk.lab2.Validator;
+
 public class Patient {
     private int id;
     private String fName;
@@ -21,14 +23,14 @@ public class Patient {
     public Patient(int id, String fName, String lName, String pName,
                    String address, String nPhone, int nMedCard,
                    String diagnosis) {
-        this.id = id;
-        this.fName = fName;
-        this.lName = lName;
-        this.pName = pName;
-        this.address = address;
-        this.nPhone = nPhone;
-        this.nMedCard = nMedCard;
-        this.diagnosis = diagnosis;
+        this.id = Validator.checkId(id, "ID: ");
+        this.fName = Validator.checkName(fName, "First name ");
+        this.lName = Validator.checkName(lName, "Last name ");
+        this.pName = Validator.checkName(pName, "Patronymic name ");
+        this.address = Validator.checkAddress(address);
+        this.nPhone = Validator.checkNPhone(nPhone);
+        this.nMedCard = Validator.checkId(nMedCard, "Medical card: ");
+        this.diagnosis = Validator.checkName(diagnosis, "Diagnosis name ");
     }
     /**
      * getters & setters
@@ -68,11 +70,14 @@ public class Patient {
 
     @Override
     public String toString() {
-        return new StringBuilder().append("Full name: ").append(fName).append(" ")
+        String dividingLine = "-------------------------------------------------";
+        return new StringBuilder().append("\n").append(dividingLine)
+                .append("\nPatient ID: ").append(String.format("%09d", id))
+                .append("\n\tFull name: ").append(fName).append(" ")
                 .append(lName).append(" ").append(pName)
-                .append("\nAddress: ").append(address)
-                .append("\nNumber of phone: ").append(nPhone)
-                .append("\nNumber of medical card: ").append(nMedCard)
-                .append("\nDiagnosis: ").append(diagnosis).toString();
+                .append("\n\tAddress: ").append(address)
+                .append("\n\tNumber of phone: ").append(nPhone)
+                .append("\n\tNumber of medical card: ").append(nMedCard)
+                .append("\n\tDiagnosis: ").append(diagnosis).toString();
     }
 }

@@ -1,8 +1,5 @@
-package com.panchuk.lab2;
+package com.panchuk.lab2.controller;
 
-import com.panchuk.lab2.model.Patient;
-
-import java.util.StringJoiner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,13 +7,23 @@ public class Validator {
     /**
      * validator of identifier
      */
-    public static int checkId(int id, String typeId) {
-        if (id > 0) {
-            return id;
-        } else {
-           throw new IllegalArgumentException(typeId + id + " does not match the rules");
+    public static int checkId(int id) throws WrongIDException {
+        if (id <= 0)
+            throw new WrongIDException("Bad ID or Medical Card Number!\n");
+        return id;
+    }
+
+    /**
+     * get int from string or throw error
+     */
+    public static int getInteger(String str) throws NumberFormatException {
+        try {
+            return Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException(e.getMessage() + " is not INT value!");
         }
     }
+
 
     /**
      * validator first name and last name and parent name
@@ -33,6 +40,7 @@ public class Validator {
             throw new IllegalArgumentException(typeName + name + " does not match the rules");
         }
     }
+
     /**
      * validator phone number
      */
@@ -48,12 +56,12 @@ public class Validator {
                         .append(nPhone.substring(3, 5)).append("-")
                         .append(nPhone.substring(5, 7)).append("-")
                         .append(nPhone.substring(7)).toString();
-            } else if (nPhone.startsWith("380")  && nPhone.length() == 12) {
+            } else if (nPhone.startsWith("380") && nPhone.length() == 12) {
                 return new StringBuilder().append("+380(").append(nPhone.substring(3, 5)).append(")")
                         .append(nPhone.substring(5, 7)).append("-")
                         .append(nPhone.substring(7, 9)).append("-")
                         .append(nPhone.substring(9)).toString();
-            } else if (nPhone.startsWith("+380") && nPhone.length() == 13){
+            } else if (nPhone.startsWith("+380") && nPhone.length() == 13) {
                 return new StringBuilder().append("+380(").append(nPhone.substring(4, 6)).append(")")
                         .append(nPhone.substring(6, 8)).append("-")
                         .append(nPhone.substring(8, 10)).append("-")
@@ -65,6 +73,7 @@ public class Validator {
             throw new IllegalArgumentException("Phone number: " + nPhone + " does not match the rules");
         }
     }
+
     /**
      * address validator
      */

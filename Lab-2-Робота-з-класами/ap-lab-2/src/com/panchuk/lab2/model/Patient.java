@@ -1,6 +1,6 @@
 package com.panchuk.lab2.model;
 
-import com.panchuk.lab2.Validator;
+import com.panchuk.lab2.controller.Validator;
 
 public class Patient {
     private int id;
@@ -23,13 +23,13 @@ public class Patient {
     public Patient(int id, String fName, String lName, String pName,
                    String address, String nPhone, int nMedCard,
                    String diagnosis) {
-        this.id = Validator.checkId(id, "ID: ");
+        this.id = id;
         this.fName = Validator.checkName(fName, "First name ");
         this.lName = Validator.checkName(lName, "Last name ");
         this.pName = Validator.checkName(pName, "Patronymic name ");
         this.address = Validator.checkAddress(address);
         this.nPhone = Validator.checkNPhone(nPhone);
-        this.nMedCard = Validator.checkId(nMedCard, "Medical card: ");
+        this.nMedCard = nMedCard;
         this.diagnosis = Validator.checkName(diagnosis, "Diagnosis name ");
     }
     /**

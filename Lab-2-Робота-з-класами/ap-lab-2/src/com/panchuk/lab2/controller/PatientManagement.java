@@ -3,36 +3,75 @@ package com.panchuk.lab2.controller;
 import com.panchuk.lab2.model.Patient;
 
 import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+class WrongIDException extends Exception {
+    public WrongIDException(String message) {
+        super(message);
+    }
+}
 public class PatientManagement {
-    private static Patient[] arrayAllPatient;
-    private static Patient[] sortedByDiagnosis;
-    private static Patient[] sortedByMedCardInterval;
-    private static Patient[] sortedByDigitOfPhoneNum;
-    /**
-     * Initialization of an array sorted by diagnosis
-     */
-    public static void initArrayAllPatient(int totalArrLength) {
-        PatientManagement.sortedByDiagnosis = new Patient[totalArrLength];
+    private static final int MAX_K_PATIENT = 200;
+    private static Scanner scanner;
+    private static Logger logger;
+    private static final Patient [] arrayAllPatient;
+    private static int kPatient;
+    private static final Patient[] sortedByDiagnosis;
+    private static final Patient[] sortedByMedCardInterval;
+    private static final Patient[] sortedByDigitOfPhoneNum;
+
+    static {
+        scanner = new Scanner(System.in);
+        logger = Logger.getLogger(Validator.class.getName());
+
+        arrayAllPatient = new Patient[MAX_K_PATIENT];
+        kPatient = 0;
+
+        sortedByDiagnosis = new Patient[MAX_K_PATIENT];
+        sortedByDigitOfPhoneNum = new Patient[MAX_K_PATIENT];
+        sortedByMedCardInterval = new Patient[MAX_K_PATIENT];
     }
-    /**
-     * Initialization of an array sorted by diagnosis
-     */
-    public static void initArrSortedByDiagnosis(int totalArrLength) {
-        PatientManagement.sortedByDiagnosis = new Patient[totalArrLength];
+
+
+
+    public static void appPatient() {
+        arrayAllPatient[kPatient++] = inputPatient();
     }
-    /**
-     * Initialization of an array sorted by medical card interval
-     */
-    public static void initArrSortedByMedCardInterval(int totalArrLength) {
-        PatientManagement.sortedByMedCardInterval = new Patient[totalArrLength];
+    public static void appPatient(Patient patient) {
+        arrayAllPatient[kPatient++] = patient;
     }
-    /**
-     * Initialization of an array sorted by first digit of phone number
-     */
-    public static void initArrSortedByDigitOfPhoneNum(int totalArrLength) {
-        PatientManagement.sortedByDigitOfPhoneNum = new Patient[totalArrLength];
+
+    private static Patient inputPatient() {
+        return new Patient(
+                inputID("ID"),
+                "Sasha",
+                "Panchuk",
+                "Viktorovich",
+                "Krasilov",
+                "+380674000657",
+                inputID("medical card number"),
+                "popa"
+        );
     }
+
+    private static int inputID(String idName) {
+        while (true) {
+            try {
+                System.out.print("\nInput patient " + idName + ": ");
+                int idValue = Validator.getInteger(scanner.nextLine());
+                int id = Validator.checkId(idValue);
+                System.out.println("\nSuccess!!!");
+                return id;
+            } catch (NumberFormatException | WrongIDException e) {
+                logger.log(Level.SEVERE, e.getMessage());
+            }
+        }
+    }
+
+
     /**
      * Getter of an array sorted by diagnosis
      */

@@ -24,12 +24,11 @@ public class Validator {
         }
     }
 
-
     /**
      * validator first name and last name and parent name
      */
-    public static String checkName(String name, String typeName) {
-        if (name == null || name.length() == 0) throw new IllegalArgumentException();
+    public static String checkName(String name, String typeName) throws WrongNameInputException {
+        if (name == null || name.length() == 0) throw new WrongNameInputException("Opss... Try again!");
 
         Pattern patternName = Pattern.compile("[ a-zA-Zа-яА-Я-]+");
         Matcher matcherName = patternName.matcher(name);
@@ -37,15 +36,15 @@ public class Validator {
         if (matcherName.matches()) {
             return name;
         } else {
-            throw new IllegalArgumentException(typeName + name + " does not match the rules");
+            throw new WrongNameInputException(typeName + name + " does not match the rules");
         }
     }
 
     /**
      * validator phone number
      */
-    public static String checkNPhone(String nPhone) {
-        if (nPhone == null || nPhone.length() == 0) throw new IllegalArgumentException();
+    public static String checkNPhone(String nPhone) throws WrongInputPhoneNumberException {
+        if (nPhone == null || nPhone.length() == 0) throw new WrongInputPhoneNumberException("Opss... Try again!");
 
         Pattern patternPhone = Pattern.compile("\\+??[0-9]+");
         Matcher matcherPhone = patternPhone.matcher(nPhone);
@@ -67,18 +66,18 @@ public class Validator {
                         .append(nPhone.substring(8, 10)).append("-")
                         .append(nPhone.substring(10)).toString();
             } else {
-                throw new IllegalArgumentException("Phone number is incorrect: " + nPhone);
+                throw new WrongInputPhoneNumberException("Phone number is incorrect: " + nPhone);
             }
         } else {
-            throw new IllegalArgumentException("Phone number: " + nPhone + " does not match the rules");
+            throw new WrongInputPhoneNumberException("Phone number: " + nPhone + " does not match the rules");
         }
     }
 
     /**
      * address validator
      */
-    public static String checkAddress(String address) {
-        if (address == null || address.length() == 0) throw new IllegalArgumentException();
+    public static String checkAddress(String address) throws WrongInputAddressException {
+        if (address == null || address.length() == 0) throw new WrongInputAddressException("Opss... Try again!");
 
         Pattern patternAddress = Pattern.compile("[ a-zA-Zа-яА-Я0-9-/.]+");
         Matcher matcherAddress = patternAddress.matcher(address);
@@ -86,7 +85,7 @@ public class Validator {
         if (matcherAddress.matches()) {
             return address;
         } else {
-            throw new IllegalArgumentException("The address " + address + " does not match the rules");
+            throw new WrongInputAddressException("The address " + address + " does not match the rules");
         }
     }
 

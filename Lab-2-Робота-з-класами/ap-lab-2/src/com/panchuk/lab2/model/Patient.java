@@ -24,13 +24,13 @@ public class Patient {
                    String address, String nPhone, int nMedCard,
                    String diagnosis) {
         this.id = id;
-        this.fName = Validator.checkName(fName, "First name ");
-        this.lName = Validator.checkName(lName, "Last name ");
-        this.pName = Validator.checkName(pName, "Patronymic name ");
-        this.address = Validator.checkAddress(address);
-        this.nPhone = Validator.checkNPhone(nPhone);
+        this.fName = fName;
+        this.lName = lName;
+        this.pName = pName;
+        this.address = address;
+        this.nPhone = nPhone;
         this.nMedCard = nMedCard;
-        this.diagnosis = Validator.checkName(diagnosis, "Diagnosis name ");
+        this.diagnosis = diagnosis;
     }
     /**
      * getters & setters

@@ -3,7 +3,6 @@ package com.panchuk.lab2.controller;
 import com.panchuk.lab2.model.Patient;
 
 import java.util.Arrays;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,6 +12,21 @@ class WrongIDException extends Exception {
         super(message);
     }
 }
+
+class WrongNameInputException extends Exception {
+    public WrongNameInputException(String message) {
+        super(message);
+    }
+}
+
+class WrongInputPhoneNumberException extends Exception {
+    public WrongInputPhoneNumberException(String message) { super(message); }
+}
+
+class WrongInputAddressException extends Exception {
+    public WrongInputAddressException(String message) { super(message); }
+}
+
 public class PatientManagement {
     private static final int MAX_K_PATIENT = 200;
     private static Scanner scanner;
@@ -47,13 +61,13 @@ public class PatientManagement {
     private static Patient inputPatient() {
         return new Patient(
                 inputID("ID"),
-                "Sasha",
-                "Panchuk",
-                "Viktorovich",
-                "Krasilov",
-                "+380674000657",
+                inputName("First Name"),
+                inputName("Last Name"),
+                inputName("Patronymic"),
+                inputAddress(),
+                inputPhoneNumber(),
                 inputID("medical card number"),
-                "popa"
+                inputName("Diagnosis")
         );
     }
 
@@ -63,13 +77,53 @@ public class PatientManagement {
                 System.out.print("\nInput patient " + idName + ": ");
                 int idValue = Validator.getInteger(scanner.nextLine());
                 int id = Validator.checkId(idValue);
-                System.out.println("\nSuccess!!!");
+                System.out.println("\nInformation successfully added!!!");
                 return id;
             } catch (NumberFormatException | WrongIDException e) {
                 logger.log(Level.SEVERE, e.getMessage());
             }
         }
     }
+
+    private static String inputName(String strName) {
+        while (true) {
+            try {
+                System.out.print("\nInput patient " + strName + ": ");
+                String str = Validator.checkName(scanner.nextLine(), strName);
+                System.out.println("\nInformation successfully added!!!");
+                return str;
+            } catch (WrongNameInputException e) {
+                logger.log(Level.SEVERE, e.getMessage());
+            }
+        }
+    }
+
+    private static String inputPhoneNumber() {
+        while (true) {
+            try {
+                System.out.print("\nInput patient phone number: ");
+                String str = Validator.checkNPhone(scanner.nextLine());
+                System.out.println("\nInformation successfully added!!!");
+                return str;
+            } catch (WrongInputPhoneNumberException e) {
+                logger.log(Level.SEVERE, e.getMessage());
+            }
+        }
+    }
+
+    private static String inputAddress() {
+        while (true) {
+            try {
+                System.out.print("\nInput patient address: ");
+                String str = Validator.checkAddress(scanner.nextLine());
+                System.out.println("\nInformation successfully added!!!");
+                return str;
+            } catch (WrongInputAddressException e) {
+                logger.log(Level.SEVERE, e.getMessage());
+            }
+        }
+    }
+
 
 
     /**

@@ -21,7 +21,7 @@ public class MainController {
         int checkPoint = scan.nextInt();
 
         if (checkPoint == -1) {
-            System.out.println("End of program!");
+            System.out.print("\nEnd of program!");
             return -1;
         }
 
@@ -32,13 +32,23 @@ public class MainController {
                 break;
             }
             case 2: {
+                System.out.println("\n\t\t\t ----------- Array all patients: \n");
+
                 printArr(PatientManagement.getArrayAllPatient());
+
+                System.out.println("\n--------------------------------------------------");
                 break;
             }
             case 3: {
                 System.out.print("\nInput diagnosis: ");
                 String diagnosis = reader.readLine();
+
+                System.out.println("\n\t\t\t ----------- Array of patients diagnosed with " + diagnosis + ": \n");
+
                 printArr(PatientManagement.getSortedByDiagnosis(diagnosis));
+
+                System.out.println("\n--------------------------------------------------");
+
                 break;
             }
             case 4: {
@@ -47,29 +57,44 @@ public class MainController {
                 start = scan.nextInt();
                 System.out.print("Input end of interval: ");
                 end = scan.nextInt();
+
+                System.out.println("\n\t\t\t ----------- Array of med card interval from " + start + " to " + end + ": \n");
+
                 printArr(PatientManagement.getSortedByMedCardInterval(start, end));
+
+                System.out.println("\n--------------------------------------------------");
                 break;
             }
             case 5: {
                 System.out.print("Input digit(s): ");
                 String digits = reader.readLine();
+
+                System.out.println("\n\t\t\t ----------- Array of phone numbers started with " + digits + ": \n");
+
                 printArr(PatientManagement.getSortedByDigitOfPhoneNum(digits));
+
+                System.out.println("\n--------------------------------------------------");
                 break;
             }
             default: {
-                break;
+                return 0;
             }
         }
         return 0;
     }
 
+    /**
+     * printAll method gets array and print its
+     */
     private static void printArr(Patient[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);
         }
     }
 
-
+    /**
+     * addingPatients method will add new patients while user input '1', stopped otherwise
+     */
     public static void addingPatients() {
         while (true) {
             PatientManagement.addPatient();
@@ -83,7 +108,9 @@ public class MainController {
 
     }
 
-
+    /**
+     * printer method output info about input param to action
+     */
     public static void printer() {
         System.out.println(new StringBuilder().append("\n\t\t\t~~~~~\n")
                 .append("Input:\n\t")
@@ -94,5 +121,7 @@ public class MainController {
                 .append("5 - to show a list of patients that sorted by first digit phone number\n\t")
                 .append("-1 - to end working")
                 .append("\n\t\t\t~~~~~\n"));
+
+        System.out.print("Your choice: ");
     }
 }

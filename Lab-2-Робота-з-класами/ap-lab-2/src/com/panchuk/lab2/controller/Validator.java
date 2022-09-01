@@ -4,12 +4,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Validator {
+
     /**
      * validator of identifier
      */
     public static int checkId(int id) throws WrongIDException {
         if (id <= 0)
-            throw new WrongIDException("Bad ID or Medical Card Number!\n");
+            throw new WrongIDException("\nBad ID or Medical Card Number!\n");
         return id;
     }
 
@@ -20,7 +21,7 @@ public class Validator {
         try {
             return Integer.parseInt(str);
         } catch (NumberFormatException e) {
-            throw new NumberFormatException(e.getMessage() + " is not INT value!");
+            throw new NumberFormatException("\n" + e.getMessage() + " is not INT value!\n");
         }
     }
 
@@ -28,7 +29,7 @@ public class Validator {
      * validator first name and last name and parent name
      */
     public static String checkName(String name, String typeName) throws WrongNameInputException {
-        if (name == null || name.length() == 0) throw new WrongNameInputException("Opss... Try again!");
+        if (name == null || name.length() == 0) throw new WrongNameInputException("\nOpss... Try again!\n");
 
         Pattern patternName = Pattern.compile("[ a-zA-Zа-яА-Я-]+");
         Matcher matcherName = patternName.matcher(name);
@@ -36,7 +37,7 @@ public class Validator {
         if (matcherName.matches()) {
             return name;
         } else {
-            throw new WrongNameInputException(typeName + name + " does not match the rules");
+            throw new WrongNameInputException("\n" + typeName + name + " does not match the rules\n");
         }
     }
 
@@ -44,7 +45,7 @@ public class Validator {
      * validator phone number
      */
     public static String checkNPhone(String nPhone) throws WrongInputPhoneNumberException {
-        if (nPhone == null || nPhone.length() == 0) throw new WrongInputPhoneNumberException("Opss... Try again!");
+        if (nPhone == null || nPhone.length() == 0) throw new WrongInputPhoneNumberException("\nOpss... Try again!\n");
 
         Pattern patternPhone = Pattern.compile("\\+??[0-9]+");
         Matcher matcherPhone = patternPhone.matcher(nPhone);
@@ -66,10 +67,10 @@ public class Validator {
                         .append(nPhone.substring(8, 10)).append("-")
                         .append(nPhone.substring(10)).toString();
             } else {
-                throw new WrongInputPhoneNumberException("Phone number is incorrect: " + nPhone);
+                throw new WrongInputPhoneNumberException("\nPhone number is incorrect: " + nPhone + "\n");
             }
         } else {
-            throw new WrongInputPhoneNumberException("Phone number: " + nPhone + " does not match the rules");
+            throw new WrongInputPhoneNumberException("\nPhone number: " + nPhone + " does not match the rules\n");
         }
     }
 
@@ -85,9 +86,8 @@ public class Validator {
         if (matcherAddress.matches()) {
             return address;
         } else {
-            throw new WrongInputAddressException("The address " + address + " does not match the rules");
+            throw new WrongInputAddressException("\nThe address " + address + " does not match the rules\n");
         }
     }
-
 
 }

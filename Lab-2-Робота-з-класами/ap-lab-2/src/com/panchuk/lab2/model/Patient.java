@@ -32,6 +32,7 @@ public class Patient {
         this.nMedCard = nMedCard;
         this.diagnosis = diagnosis;
     }
+
     /**
      * getters & setters
      */

@@ -31,7 +31,7 @@ public class Validator {
     public static String checkName(String name, String typeName) throws WrongNameInputException {
         if (name == null || name.length() == 0) throw new WrongNameInputException("\nOpss... Try again!\n");
 
-        Pattern patternName = Pattern.compile("[ a-zA-Zа-яА-Я-]+");
+        Pattern patternName = Pattern.compile("[ a-zA-Zа-яА-Я-']+");
         Matcher matcherName = patternName.matcher(name);
 
         if (matcherName.matches()) {

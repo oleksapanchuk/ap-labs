@@ -17,6 +17,9 @@ public class MainController {
         reader = new BufferedReader(new InputStreamReader(System.in));
     }
 
+    /**
+     * method run program and provide interaction with user
+     */
     public static int runner() throws IOException {
         int checkPoint = scan.nextInt();
 
@@ -84,15 +87,6 @@ public class MainController {
     }
 
     /**
-     * printAll method gets array and print its
-     */
-    private static void printArr(Patient[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
-        }
-    }
-
-    /**
      * addingPatients method will add new patients while user input '1', stopped otherwise
      */
     public static void addingPatients() {
@@ -106,6 +100,15 @@ public class MainController {
         }
 
 
+    }
+
+    /**
+     * printAll method gets array and print its
+     */
+    public static void printArr(Patient[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
     }
 
     /**

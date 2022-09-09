@@ -1,7 +1,6 @@
 package com.panchuk.lab3.controller;
 
-import com.panchuk.lab3.Area;
-import com.panchuk.lab3.model.*;
+import com.panchuk.lab3.model.Droid;
 
 public class BattleInfo {
     private final Droid userDroid;
@@ -9,54 +8,39 @@ public class BattleInfo {
     private final String userName;
     private final int area;
 
-    public BattleInfo(int userDroid, int enemyDroid, String userName, int area) {
+    public BattleInfo(Droid userDroid, Droid enemyDroid, String userName, int area) {
+        this.userDroid = userDroid;
+        this.enemyDroid = enemyDroid;
         this.userName = userName;
         this.area = area;
-        this.userDroid = areaProp(userDroid);
-        this.enemyDroid = areaProp(enemyDroid);
     }
 
-    public Droid areaProp(int idDroid) {
+    public Droid getUserDroid() {
+        return userDroid;
+    }
 
-        switch (idDroid) {
-            case 1 -> {
-                LionDroid lionDroid = new LionDroid();
-                Area.setPropForLion(lionDroid, area);
-                System.out.println("Lion Droid prepared for battle!");
-                return lionDroid;
-            }
-            case 2 -> {
-                ScorpionDroid scorpionDroid = new ScorpionDroid();
-                Area.setPropForScorpion(scorpionDroid, area);
-                System.out.println("Scorpion Droid prepared for battle!");
-                return scorpionDroid;
-            }
-            case 3 -> {
-                SnakeDroid snakeDroid = new SnakeDroid();
-                Area.setPropForSnake(snakeDroid, area);
-                System.out.println("Snake Droid prepared for battle!");
-                return snakeDroid;
-            }
-            case 4 -> {
-                CrocodileDroid crocodileDroid = new CrocodileDroid();
-                Area.setPropForCrocodile(crocodileDroid, area);
-                System.out.println("Crocodile Droid prepared for battle!");
-                return crocodileDroid;
-            }
-            case 5 -> {
-                SharkDroid sharkDroid = new SharkDroid();
-                Area.setPropForShark(sharkDroid, area);
-                System.out.println("Shark Droid prepared for battle!");
-                return sharkDroid;
-            }
-            default -> {
-                System.out.println("Not working!");
-                return null;
-            }
+    public Droid getEnemyDroid() {
+        return enemyDroid;
+    }
 
-        }
+    public String getUserName() {
+        return userName;
+    }
 
+    public int getArea() {
+        return area;
     }
 
 
+
+
+    @Override
+    public String toString() {
+        return "BattleInfo{" +
+                "userDroid=" + userDroid +
+                ", enemyDroid=" + enemyDroid +
+                ", userName='" + userName + '\'' +
+                ", area=" + area +
+                '}';
+    }
 }

@@ -11,10 +11,13 @@ public abstract class Droid {
         this.energy = energy;
     }
 
-    public abstract int bite();
-    public abstract int hit();
-    public abstract void skill();
-    public abstract void selfHeal(Droid enemy);
+    public abstract void getDamage(int damage);
+    public abstract int giveDamage(int damage, Droid other);
+    public abstract int useSkill(Droid other);
+    public abstract void selfHeal(Droid other);
+    public boolean isAlive() {
+        return health > 0 && energy > 0;
+    }
 
     public String getName() {
         return name;

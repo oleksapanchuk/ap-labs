@@ -4,6 +4,47 @@ import com.panchuk.lab3.model.*;
 
 public class Area {
 
+    public static Droid createNewDroid(int idDroid, int idArea) {
+
+        switch (idDroid) {
+            case 1 -> {
+                LionDroid lionDroid = new LionDroid();
+                Area.setPropForLion(lionDroid, idArea);
+                System.out.println("Lion Droid prepared for battle!");
+                return lionDroid;
+            }
+            case 2 -> {
+                ScorpionDroid scorpionDroid = new ScorpionDroid();
+                Area.setPropForScorpion(scorpionDroid, idArea);
+                System.out.println("Scorpion Droid prepared for battle!");
+                return scorpionDroid;
+            }
+            case 3 -> {
+                SnakeDroid snakeDroid = new SnakeDroid();
+                Area.setPropForSnake(snakeDroid, idArea);
+                System.out.println("Snake Droid prepared for battle!");
+                return snakeDroid;
+            }
+            case 4 -> {
+                CrocodileDroid crocodileDroid = new CrocodileDroid();
+                Area.setPropForCrocodile(crocodileDroid, idArea);
+                System.out.println("Crocodile Droid prepared for battle!");
+                return crocodileDroid;
+            }
+            case 5 -> {
+                SharkDroid sharkDroid = new SharkDroid();
+                Area.setPropForShark(sharkDroid, idArea);
+                System.out.println("Shark Droid prepared for battle!");
+                return sharkDroid;
+            }
+            default -> {
+                System.out.println("Not working!");
+                return null;
+            }
+        }
+
+    }
+
     public static void setPropForLion(LionDroid droid, int idArea) {
         switch (idArea) {
             case 1 -> {

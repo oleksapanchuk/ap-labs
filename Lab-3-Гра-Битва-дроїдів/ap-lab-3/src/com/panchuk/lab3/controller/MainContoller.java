@@ -13,9 +13,9 @@ public class MainContoller {
     public static void mainMenu() {
         int checker = printMainMenu();
         if (checker == 1) {
-            BattleInfo info = new BattleInfo(1, 2, "Sasha", 2);
+//            BattleInfo info = new BattleInfo(1, 2, "Sasha", 2);
             System.out.println("there will 1 VS 1");
-            System.out.println(info);
+//            System.out.println(info);
         } else if (checker == 2) {
             System.out.println("there will team VS team");
         } else {

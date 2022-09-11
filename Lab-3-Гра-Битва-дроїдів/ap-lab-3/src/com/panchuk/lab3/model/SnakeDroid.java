@@ -25,7 +25,7 @@ public class SnakeDroid extends Droid {
     }
 
     @Override
-    public int giveDamage(int damage, Droid other) {
+    public int giveDamage(Droid other) {
 
         System.out.print("Choose variant of damage: 1 - snakebite; 2 - choke: ");
         if (scan.nextInt() == 1) {
@@ -42,11 +42,43 @@ public class SnakeDroid extends Droid {
 
     @Override
     public int useSkill(Droid other) {
-        return 0;
+        if (!isUsedSkill) {
+            isUsedSkill = true;
+            health += 20;
+            return 1;
+        } else
+            return 0;
     }
 
     @Override
     public void selfHeal(Droid enemy) {
+        this.health += 2;
+    }
 
+    @Override
+    public void adaptationToArea(int idOfArea) {
+        switch (idOfArea) {
+            case 0: break;
+            case 1:
+                health += 10;
+                energy += 35;
+                break;
+            case 2:
+                health -= 15;
+                energy += 2;
+                break;
+            case 3:
+                health += 6;
+                energy += 10;
+                break;
+            default:
+                throw new IllegalStateException("Unexpected id of area: " + idOfArea);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Snake Droid: \n\t\tHealth = " + health +
+                "\n\t\tEnergy = " + energy;
     }
 }

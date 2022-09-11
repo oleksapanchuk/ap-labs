@@ -25,7 +25,7 @@ public class LionDroid extends Droid {
     }
 
     @Override
-    public int giveDamage(int damage, Droid other) {
+    public int giveDamage(Droid other) {
 
         System.out.print("Choose variant of damage: 1 - bite; 2 - hit: ");
         if (scan.nextInt() == 1) {
@@ -54,5 +54,32 @@ public class LionDroid extends Droid {
     @Override
     public void selfHeal(Droid other) {
         this.health += (int) (other.getHealth() * 0.1);
+    }
+
+    @Override
+    public void adaptationToArea(int idOfArea) {
+        switch (idOfArea) {
+            case 0: break;
+            case 1:
+                health += 5;
+                energy += 15;
+                break;
+            case 2:
+                health -= 3;
+                energy += 6;
+                break;
+            case 3:
+                health += 2;
+                energy += 12;
+                break;
+            default:
+                throw new IllegalStateException("Unexpected id of area: " + idOfArea);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Lion Droid: \n\t\tHealth = " + health +
+                "\n\t\tEnergy = " + energy;
     }
 }

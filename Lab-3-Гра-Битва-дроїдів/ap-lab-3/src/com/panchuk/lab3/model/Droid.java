@@ -12,9 +12,10 @@ public abstract class Droid {
     }
 
     public abstract void getDamage(int damage);
-    public abstract int giveDamage(int damage, Droid other);
+    public abstract int giveDamage(Droid other);
     public abstract int useSkill(Droid other);
     public abstract void selfHeal(Droid other);
+    public abstract void adaptationToArea(int idOfArea);
     public boolean isAlive() {
         return health > 0 && energy > 0;
     }

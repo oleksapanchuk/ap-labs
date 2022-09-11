@@ -11,9 +11,9 @@ public abstract class Droid {
         this.energy = energy;
     }
 
+    public abstract int printMenuDroid();
     public abstract void getDamage(int damage);
-    public abstract int giveDamage(Droid other);
-    public abstract int useSkill(Droid other);
+    public abstract void giveDamage(int type, Droid other);
     public abstract void selfHeal(Droid other);
     public abstract void adaptationToArea(int idOfArea);
     public boolean isAlive() {

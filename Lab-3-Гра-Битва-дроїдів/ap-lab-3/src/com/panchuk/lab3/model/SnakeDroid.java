@@ -20,15 +20,23 @@ public class SnakeDroid extends Droid {
 
     @Override
     public void getDamage(int damage) {
-        if (useSkill(null) == 0)
-            this.health -= damage;
+//        if (useSkill(null) == 0)
+        this.health -= damage;
     }
 
     @Override
-    public int giveDamage(Droid other) {
+    public int printMenuDroid() {
+        System.out.print("""
+                Choose variant of damage:\s
+                \t\t\t\t\t1 - snakebite (30 - 70)d -80e
+                \t\t\t\t\t2 - choke (1 - 25)d -12e -8h
+                Your choice:\040""");
+        return scan.nextInt();
+    }
+    @Override
+    public void giveDamage(int type, Droid other) {
 
-        System.out.print("Choose variant of damage: 1 - snakebite; 2 - choke: ");
-        if (scan.nextInt() == 1) {
+        if (type == 1) {
             this.energy -= 80;
             other.getDamage(random.nextInt(30, 71));
         } else {
@@ -36,12 +44,10 @@ public class SnakeDroid extends Droid {
             this.health -= 8;
             other.getDamage(random.nextInt(1, 26));
         }
-
-        return 0;
     }
 
-    @Override
-    public int useSkill(Droid other) {
+
+    public int useSkill() {
         if (!isUsedSkill) {
             isUsedSkill = true;
             health += 20;
@@ -60,16 +66,16 @@ public class SnakeDroid extends Droid {
         switch (idOfArea) {
             case 0: break;
             case 1:
-                health += 10;
-                energy += 35;
+                health = 270;
+                energy = 295;
                 break;
             case 2:
-                health -= 15;
-                energy += 2;
+                health = 245;
+                energy = 262;
                 break;
             case 3:
-                health += 6;
-                energy += 10;
+                health = 266;
+                energy = 270;
                 break;
             default:
                 throw new IllegalStateException("Unexpected id of area: " + idOfArea);

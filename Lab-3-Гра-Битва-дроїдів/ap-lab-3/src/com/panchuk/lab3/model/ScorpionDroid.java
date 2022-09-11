@@ -1,23 +1,34 @@
 package com.panchuk.lab3.model;
 
+import java.util.Scanner;
+
 public class ScorpionDroid extends Droid {
+    private static final Scanner scan = new Scanner(System.in);
 
     public ScorpionDroid() {
         super("Scorpion", 100, 195);
     }
 
     @Override
+    public int printMenuDroid() {
+        System.out.print("""
+                Choose variant of damage:\s
+                \t\t\t\t\t1 - bite (50 - 60)d -80e -10h
+                \t\t\t\t\t2 - hit (3 - 5)d -4e
+                Your choice:\040""");
+        return scan.nextInt();
+    }
+    @Override
     public void getDamage(int damage) {
+        this.health -= damage;
+    }
+
+    @Override
+    public void giveDamage(int type, Droid other) {
         return;
     }
 
-    @Override
-    public int giveDamage(Droid other) {
-        return 0;
-    }
-
-    @Override
-    public int useSkill(Droid other) {
+    public int useSkill() {
         return 0;
     }
 
@@ -31,16 +42,16 @@ public class ScorpionDroid extends Droid {
         switch (idOfArea) {
             case 0: break;
             case 1:
-                health += 60;
-                energy += 20;
+                health = 160;
+                energy = 215;
                 break;
             case 2:
-                health += 4;
-                energy -= 5;
+                health = 104;
+                energy = 190;
                 break;
             case 3:
-                health += 16;
-                energy += 4;
+                health = 116;
+                energy = 199;
                 break;
             default:
                 throw new IllegalStateException("Unexpected id of area: " + idOfArea);

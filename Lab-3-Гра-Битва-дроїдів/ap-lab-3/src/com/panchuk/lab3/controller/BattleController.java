@@ -3,6 +3,7 @@ package com.panchuk.lab3.controller;
 import com.panchuk.lab3.model.*;
 
 public class BattleController {
+    private static final int NUM_ROUNDS = 2;
     private final Droid userDroid;
     private final Droid enemyDroid;
     private final String userName;
@@ -18,39 +19,36 @@ public class BattleController {
     public void initBattle() {
         userDroid.adaptationToArea(area);
         enemyDroid.adaptationToArea(area);
-
-        printDroid(userDroid, enemyDroid);
     }
 
     public void runBattle() {
-        int scoreUser = 0;
-        int scoreEnemy = 0;
+        int [] totalScore = new int[NUM_ROUNDS];
+        int kRound = 0;
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < NUM_ROUNDS; i++) {
 
-            System.out.println("\n\t\t--- Round " + (i + 1));
-            int resultOfRound = roundRunner(userDroid, enemyDroid);
-            if (resultOfRound == 0) {
-                scoreUser++;
-                System.out.println("Win " + userDroid.getName());
-            } else if (resultOfRound == 1) {
-                scoreEnemy++;
-                System.out.println("Win " + userDroid.getName());
-            } else {
-                scoreUser++;
-                scoreEnemy++;
-                System.out.println("Draw!");
-            }
+            initBattle();
+
+            System.out.println("\n\t\t\t\t\t\t\t~~~ START ~~~");
+
+            System.out.println("\n-------------- Round " + (i + 1) + " -------------------------------------------------");
+            totalScore[kRound++] = roundRunner(userDroid, enemyDroid);
+            System.out.println("----------------------------------------------------------------------------");
         }
+
+        getWinner(totalScore);
     }
 
     private static int roundRunner(Droid user, Droid enemy) {
-
+        int kFight = 0;
         while (user.isAlive() && enemy.isAlive()) {
+            System.out.println("\n~~~~~~~~ Fight " + (++kFight) + " ~~~~~~~~~~~~~~~~~~~~~~~");
+            printDroid(user, enemy);
 
-            user.giveDamage(enemy);
-            enemy.giveDamage(user);
+            user.giveDamage(user.printMenuDroid(), enemy);
+            BotController.botGiveDamage(enemy, user);
 
+            System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             if (!user.isAlive() && !enemy.isAlive()) {
                 return 2;
             } else if (!user.isAlive() ) {
@@ -58,16 +56,44 @@ public class BattleController {
             } else if (!enemy.isAlive()) {
                 return 0;
             }
-
-            printDroid(user, enemy);
         }
         return -1;
     }
 
 
 
-    public static Droid getWinner() {
-        return null;
+    public void getWinner(int [] total) {
+        int userScore = 0;
+        int enemyScore = 0;
+
+        System.out.print("\n\n\t\t\t\t\t~~~ Total result ~~~");
+        for (int i = 0; i < NUM_ROUNDS; i++) {
+            System.out.print("\nRound " + (i + 1) + ": \t");
+
+            if (total[i] == 0) {
+                userScore++;
+                System.out.print("\tWin - " + userDroid.getName());
+            } else if (total[i] == 1) {
+                enemyScore++;
+                System.out.print("\tWin - " + enemyDroid.getName());
+            } else {
+                userScore++;
+                enemyScore++;
+                System.out.print("\tDraw");
+            }
+        }
+
+        if (userScore == enemyScore) {
+            System.out.println("\n\n\t\tDRAW - friendship won");
+        } else {
+            System.out.print("\n\nABSOLUTE CHAMPION is ");
+            if (userScore > enemyScore) {
+                System.out.println(userDroid.getName());
+            } else {
+                System.out.println(enemyDroid.getName());
+            }
+        }
+
     }
 
     /** printDroid - method print current data about droids
@@ -86,16 +112,12 @@ public class BattleController {
         Droid ud = new LionDroid();
         Droid ed = new SnakeDroid();
 
-        BattleController newBattle = new BattleController(ud, ed, "Men", 0);
+        BattleController newBattle = new BattleController(ud, ed, "Men", 2);
 
 
         System.out.println("\t\t\t\t~~~ Droids are ready for battle!!! ~~~");
         newBattle.initBattle();
-        System.out.println("\n\t\t\t\t\t\t\t~~~ START ~~~");
         newBattle.runBattle();
-
-        printDroid(ud, ed);
-
     }
 
 }

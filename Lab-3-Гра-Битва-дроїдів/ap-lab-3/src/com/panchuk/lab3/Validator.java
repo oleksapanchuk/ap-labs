@@ -15,10 +15,9 @@ public class Validator {
                 int intValue = intValue();
                 if (intValue >= start && intValue <= end) {
                     return intValue;
-                } else {
-                    System.err.print("Inputted value does not match the written" +
-                            " value (" + start + ", " + end + "). Try again: ");
                 }
+                System.err.print("Inputted value does not match the written" +
+                        " value (" + start + ", " + end + "). Try again: ");
             } catch (NumberFormatException e) {
                 System.err.print("Number Format Exception. Try again: ");
             }

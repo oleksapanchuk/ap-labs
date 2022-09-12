@@ -1,66 +1,50 @@
 package com.panchuk.lab3.model;
 
+import com.panchuk.lab3.Randomizer;
 import com.panchuk.lab3.Validator;
 
-import java.util.Random;
-import java.util.Scanner;
-
 public class SnakeDroid extends Droid {
-    private static final Random random;
-    private static final Scanner scan;
-    private boolean isUsedSkill;
-
-    static {
-        random = new Random();
-        scan = new Scanner(System.in);
-    }
 
     public SnakeDroid() {
-        super("Snake", 260, 260);
-        this.isUsedSkill = false;
+        super("Snake", 260, 260, false);
     }
 
-    @Override
-    public void getDamage(int damage) {
-//        if (useSkill(null) == 0)
-        this.health -= damage;
-    }
-
-    @Override
-    public int printMenuDroid() {
-        System.out.print("""
-                Choose variant of damage:\s
-                \t\t\t\t\t1 - snakebite (30 - 70)d -80e
-                \t\t\t\t\t2 - choke (1 - 25)d -12e -8h
-                Your choice:\040""");
-        return Validator.inputValue(1, 2);
-    }
     @Override
     public void giveDamage(int type, Droid other) {
 
         if (type == 1) {
-            this.energy -= 80;
-            other.getDamage(random.nextInt(30, 71));
+            this.energy -= 65;
+            other.getDamage(Randomizer.getRadomInt(30, 70));
         } else {
             this.energy -= 12;
             this.health -= 8;
-            other.getDamage(random.nextInt(1, 26));
+            other.getDamage(Randomizer.getRadomInt(1, 25));
         }
     }
 
+    @Override
+    public void getDamage(int damage) {
+        if (damage > 40) {
+            if (useSkill() != 0)
+                this.health -= damage;
+        } else {
+            this.health -= damage;
+        }
+
+        if (this.isAlive())
+            health += 4;
+    }
 
     public int useSkill() {
         if (!isUsedSkill) {
-            isUsedSkill = true;
-            health += 20;
-            return 1;
-        } else
-            return 0;
-    }
-
-    @Override
-    public void selfHeal(Droid enemy) {
-        this.health += 2;
+            System.out.print("You can use your skill - 'skip damage if it is more then 40'." +
+                    "\nInput '1' if you want, '2' - otherwise: ");
+            if (Validator.inputValue(1, 2) == 1) {
+                isUsedSkill = true;
+                return 0;
+            }
+        }
+        return 1;
     }
 
     @Override
@@ -82,6 +66,16 @@ public class SnakeDroid extends Droid {
             default:
                 throw new IllegalStateException("Unexpected id of area: " + idOfArea);
         }
+    }
+
+    @Override
+    public int printMenuDroid() {
+        System.out.print("""
+                Choose variant of damage:\s
+                \t\t\t\t\t1 - snakebite (30 - 70)d -65e
+                \t\t\t\t\t2 - choke     (1 - 25)d  -12e -8h
+                Your choice:\040""");
+        return Validator.inputValue(1, 2);
     }
 
     @Override

@@ -1,60 +1,42 @@
 package com.panchuk.lab3.model;
 
+import com.panchuk.lab3.Randomizer;
 import com.panchuk.lab3.Validator;
 
-import java.util.Random;
-import java.util.Scanner;
-
 public class LionDroid extends Droid {
-    private static final Random random;
-    private static final Scanner scan;
-    private boolean isUsedSkill;
-
-    static {
-        random = new Random();
-        scan = new Scanner(System.in);
-    }
 
     public LionDroid() {
-        super("Lion", 180, 210);
-        isUsedSkill = false;
+        super("Lion", 180, 210, false);
     }
 
-
     @Override
-    public int printMenuDroid() {
-        System.out.print("""
-                Choose variant of damage:\s
-                \t\t\t\t\t1 - bite (20 - 40)d -30e
-                \t\t\t\t\t2 - hit (5 - 15)d -10e
-                Your choice:\040""");
-        return Validator.inputValue(1, 2);
+    public void giveDamage(int type, Droid other) {
+        if (type == 1) {
+            this.energy -= 24;
+            other.getDamage(Randomizer.getRadomInt(20, 30));
+        } else {
+            this.energy -= 10;
+            other.getDamage(Randomizer.getRadomInt(5, 15));
+        }
     }
 
     @Override
     public void getDamage(int damage) {
         if (useSkill() != 0)
             this.health -= damage;
+
+        if (this.isAlive())
+            selfHeal();
     }
 
 
-    @Override
-    public void giveDamage(int type, Droid other) {
-
-        if (type == 1) {
-            this.energy -= 30;
-            other.getDamage(random.nextInt(20, 41));
-        } else {
-            this.energy -= 10;
-            other.getDamage(random.nextInt(5, 16));
-        }
-    }
 
 
     public int useSkill() {
         if (!isUsedSkill) {
-            System.out.print("You can use (input 1) your skill - 'skip damage': ");
-            if (scan.nextInt() == 1) {
+            System.out.print("You can use your skill - 'skip damage'." +
+                    "\nInput '1' if you want, '2' - otherwise: ");
+            if (Validator.inputValue(1, 2) == 1) {
                 isUsedSkill = true;
                 return 0;
             }
@@ -63,16 +45,11 @@ public class LionDroid extends Droid {
     }
 
     @Override
-    public void selfHeal(Droid other) {
-        this.health += (int) (other.getHealth() * 0.1);
-    }
-
-    @Override
     public void adaptationToArea(int idOfArea) {
         switch (idOfArea) {
             case 0: break;
             case 1:
-                health = 185;
+                health = 190;
                 energy = 225;
                 break;
             case 2:
@@ -86,6 +63,20 @@ public class LionDroid extends Droid {
             default:
                 throw new IllegalStateException("Unexpected id of area: " + idOfArea);
         }
+    }
+
+    private void selfHeal() {
+        health += 3;
+    }
+
+    @Override
+    public int printMenuDroid() {
+        System.out.print("""
+                Choose variant of damage:\s
+                \t\t\t\t\t1 - bite (20 - 30)d -24e
+                \t\t\t\t\t2 - hit  (5 - 15)d  -10e
+                Your choice:\040""");
+        return Validator.inputValue(1, 2);
     }
 
     @Override

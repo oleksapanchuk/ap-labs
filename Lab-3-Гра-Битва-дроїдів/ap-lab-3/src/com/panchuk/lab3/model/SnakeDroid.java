@@ -1,5 +1,7 @@
 package com.panchuk.lab3.model;
 
+import com.panchuk.lab3.Validator;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -31,7 +33,7 @@ public class SnakeDroid extends Droid {
                 \t\t\t\t\t1 - snakebite (30 - 70)d -80e
                 \t\t\t\t\t2 - choke (1 - 25)d -12e -8h
                 Your choice:\040""");
-        return scan.nextInt();
+        return Validator.inputValue(1, 2);
     }
     @Override
     public void giveDamage(int type, Droid other) {

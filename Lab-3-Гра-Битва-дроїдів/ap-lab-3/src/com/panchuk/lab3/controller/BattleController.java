@@ -6,13 +6,11 @@ public class BattleController {
     private static final int NUM_ROUNDS = 2;
     private final Droid userDroid;
     private final Droid enemyDroid;
-    private final String userName;
     private final int area;
 
-    public BattleController(Droid userDroid, Droid enemyDroid, String userName, int area) {
+    public BattleController(Droid userDroid, Droid enemyDroid, int area) {
         this.userDroid = userDroid;
         this.enemyDroid = enemyDroid;
-        this.userName = userName;
         this.area = area;
     }
 
@@ -112,7 +110,7 @@ public class BattleController {
         Droid ud = new LionDroid();
         Droid ed = new SnakeDroid();
 
-        BattleController newBattle = new BattleController(ud, ed, "Men", 2);
+        BattleController newBattle = new BattleController(ud, ed, 2);
 
 
         System.out.println("\t\t\t\t~~~ Droids are ready for battle!!! ~~~");

@@ -1,5 +1,7 @@
 package com.panchuk.lab3.model;
 
+import com.panchuk.lab3.Validator;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -26,7 +28,7 @@ public class LionDroid extends Droid {
                 \t\t\t\t\t1 - bite (20 - 40)d -30e
                 \t\t\t\t\t2 - hit (5 - 15)d -10e
                 Your choice:\040""");
-        return scan.nextInt();
+        return Validator.inputValue(1, 2);
     }
 
     @Override

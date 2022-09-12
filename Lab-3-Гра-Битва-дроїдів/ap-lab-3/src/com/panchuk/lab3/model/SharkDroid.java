@@ -1,5 +1,7 @@
 package com.panchuk.lab3.model;
 
+import com.panchuk.lab3.Validator;
+
 import java.util.Scanner;
 
 public class SharkDroid extends Droid {
@@ -15,7 +17,7 @@ public class SharkDroid extends Droid {
                 \t\t\t\t\t1 - bite (35 - 40)d -45e
                 \t\t\t\t\t2 - hit (10 - 17)d -14e -3h
                 Your choice:\040""");
-        return scan.nextInt();
+        return Validator.inputValue(1, 2);
     }
     @Override
     public void getDamage(int damage) {

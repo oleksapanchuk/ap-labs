@@ -4,32 +4,31 @@ import com.panchuk.lab3.Randomizer;
 import com.panchuk.lab3.Validator;
 import com.panchuk.lab3.model.*;
 
-import java.util.Random;
-import java.util.Scanner;
-
-public class MainContoller {
-    private static final Scanner scanner;
-
-
-    static {
-        scanner = new Scanner(System.in);
-    }
+public class MainController {
 
     public static void mainMenu() {
+
         if (printMainMenu() == 1) {
 
-            System.out.println("there will 1 VS 1");
+            battleOneVSOne();
 
-            BattleController battle = new BattleController(
-                    chooseYourDroid(),
-                    randromDroidForBattle(),
-                    Randomizer.getRadomInt(0, 3));
-            System.out.println("\t\t\t\t~~~ Droids are ready for battle!!! ~~~");
-            battle.initBattle();
-            battle.runBattle();
         } else {
-            System.out.println("there will team VS team");
+
+            System.out.println(" Team VS Team");
+
         }
+    }
+
+    private static void battleOneVSOne() {
+        System.out.println("\n\t\t\t\t\t\t\t~~~ START ~~~");
+
+        BattleController battle = new BattleController(
+                chooseYourDroid(),
+                randomDroidForBattle(),
+                Randomizer.getRadomInt(0, 3));
+        System.out.println("\t\t\t\t~~~ Droids are ready for battle!!! ~~~");
+        battle.initBattle();
+        battle.runBattle();
     }
 
     private static Droid chooseYourDroid() {
@@ -42,7 +41,7 @@ public class MainContoller {
         return selectDroidByID(idDroid);
     }
 
-    private static Droid randromDroidForBattle() {
+    private static Droid randomDroidForBattle() {
         return selectDroidByID(Randomizer.getRadomInt(1, 5));
     }
 
@@ -58,17 +57,16 @@ public class MainContoller {
     }
 
     private static void printListOfDroids() {
-        System.out.println("\n ~~~ Droid 1 ~~~ \n" + new LionDroid().toString());
-        System.out.println("\n ~~~ Droid 2 ~~~ \n" + new ScorpionDroid().toString());
-        System.out.println("\n ~~~ Droid 3 ~~~ \n" + new SnakeDroid().toString());
-        System.out.println("\n ~~~ Droid 4 ~~~ \n" + new CrocodileDroid().toString());
-        System.out.println("\n ~~~ Droid 5 ~~~ \n" + new SharkDroid().toString());
+        System.out.println("\n ~~~ Droid 1 ~~~ \n" + new LionDroid());
+        System.out.println("\n ~~~ Droid 2 ~~~ \n" + new ScorpionDroid());
+        System.out.println("\n ~~~ Droid 3 ~~~ \n" + new SnakeDroid());
+        System.out.println("\n ~~~ Droid 4 ~~~ \n" + new CrocodileDroid());
+        System.out.println("\n ~~~ Droid 5 ~~~ \n" + new SharkDroid());
     }
-
 
     public static int printMainMenu() {
         System.out.print("""
-                
+                                
                 Battle preparation menu:
                 \t'1' - if you want battle 1 VS 1
                 \t'2' - if you want battle Team VS Team
@@ -76,6 +74,7 @@ public class MainContoller {
 
         return Validator.inputValue(1, 2);
     }
+
     public static int printStartMenu() {
         System.out.print("""
                 Start menu:

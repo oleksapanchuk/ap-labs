@@ -27,8 +27,6 @@ public class BattleController {
 
             initBattle();
 
-            System.out.println("\n\t\t\t\t\t\t\t~~~ START ~~~");
-
             System.out.println("\n-------------- Round " + (i + 1) + " -------------------------------------------------");
             totalScore[kRound++] = roundRunner(userDroid, enemyDroid);
             System.out.println("----------------------------------------------------------------------------");

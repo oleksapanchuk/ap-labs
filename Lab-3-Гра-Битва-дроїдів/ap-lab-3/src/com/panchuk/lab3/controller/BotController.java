@@ -1,5 +1,6 @@
 package com.panchuk.lab3.controller;
 
+import com.panchuk.lab3.Randomizer;
 import com.panchuk.lab3.model.Droid;
 
 import java.util.Random;

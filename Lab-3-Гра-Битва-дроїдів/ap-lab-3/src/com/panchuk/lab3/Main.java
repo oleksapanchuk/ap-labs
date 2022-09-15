@@ -14,8 +14,7 @@ public class Main {
         } else if (checker == 2) {
             System.out.println("Replay battle!");
         } else {
-            System.out.println("You input is '" + checker + "' - this means the end of program!!!");
+            System.out.println("The end of program!!!");
         }
-
     }
 }

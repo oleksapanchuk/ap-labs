@@ -26,7 +26,7 @@ public class LionDroid extends Droid {
             this.health -= damage;
 
         if (this.isAlive())
-            selfHeal();
+            health += 3;
     }
 
 
@@ -63,10 +63,6 @@ public class LionDroid extends Droid {
             default:
                 throw new IllegalStateException("Unexpected id of area: " + idOfArea);
         }
-    }
-
-    private void selfHeal() {
-        health += 3;
     }
 
     @Override

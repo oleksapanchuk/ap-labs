@@ -58,8 +58,6 @@ public class BattleController {
         return -1;
     }
 
-
-
     public void getWinner(int [] total) {
         int userScore = 0;
         int enemyScore = 0;

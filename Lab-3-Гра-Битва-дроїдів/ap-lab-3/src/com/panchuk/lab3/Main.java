@@ -1,5 +1,6 @@
 package com.panchuk.lab3;
 
+import com.panchuk.lab3.controller.FileController;
 import com.panchuk.lab3.controller.MainController;
 
 public class Main {
@@ -15,6 +16,9 @@ public class Main {
 
         } else if (checker == 2) {
             System.out.println("Replay battle!");
+
+            FileController.readFile();
+
         } else {
             System.out.println("The end of program!!!");
         }

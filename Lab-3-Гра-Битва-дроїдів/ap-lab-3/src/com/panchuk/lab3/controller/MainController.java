@@ -19,6 +19,10 @@ public class MainController {
         }
     }
 
+    public static void replayBattle() {
+        FileController.readFile();
+    }
+
     private static void battleOneVSOne() {
         System.out.println("\n\t\t\t\t\t\t\t~~~ START ~~~");
 
@@ -29,6 +33,11 @@ public class MainController {
         System.out.println("\t\t\t\t~~~ Droids are ready for battle!!! ~~~");
         battle.initBattle();
         battle.runBattle();
+
+        FileController.createFile(battle.getUserDroid().getName().toLowerCase()
+                + "_vs_"
+                + battle.getEnemyDroid().getName().toLowerCase());
+        FileController.writeToFile(battle.getInfo().toString());
     }
 
     private static Droid chooseYourDroid() {

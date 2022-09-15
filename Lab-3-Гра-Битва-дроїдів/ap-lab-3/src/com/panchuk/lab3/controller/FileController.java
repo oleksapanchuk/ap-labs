@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class WriteToFile {
+public class FileController {
     private static Scanner scanner;
     private static String filePath;
 

@@ -10,61 +10,65 @@ public class SnakeDroid extends Droid {
     }
 
     @Override
-    public void giveDamage(int type, Droid other) {
+    public void giveDamage(int type, Droid other, boolean isBot) {
 
         if (type == 1) {
             this.energy -= 65;
-            other.getDamage(Randomizer.getRadomInt(30, 70));
+            other.getDamage(Randomizer.getRadomInt(30, 70), isBot);
         } else {
             this.energy -= 12;
             this.health -= 8;
-            other.getDamage(Randomizer.getRadomInt(1, 25));
+            other.getDamage(Randomizer.getRadomInt(1, 25), isBot);
         }
     }
 
     @Override
-    public void getDamage(int damage) {
-        if (damage > 40) {
-            if (useSkill() != 0)
-                this.health -= damage;
-        } else {
-            this.health -= damage;
-        }
+    public void getDamage(int damage, boolean isBot) {
+        if (!isUsedSkill && damage > 40) {
+            if (isBot) {
+                if (Randomizer.getRadomInt(1, 2) == 1) isUsedSkill = true;
+                else health -= damage;
+            } else
+                if (!useSkill())
+                    health -= damage;
+        } else
+            health -= damage;
+
 
         if (this.isAlive())
             health += 4;
     }
 
-    public int useSkill() {
-        if (!isUsedSkill) {
-            System.out.print("You can use your skill - 'skip damage if it is more then 40'." +
-                    "\nInput '1' if you want, '2' - otherwise: ");
-            if (Validator.inputValue(1, 2) == 1) {
-                isUsedSkill = true;
-                return 0;
-            }
+    public boolean useSkill() {
+        System.out.print("You can use your skill - 'skip damage if it is more then 40'." +
+                "\nInput '1' if you want, '2' - otherwise: ");
+        if (Validator.inputValue(1, 2) == 1) {
+            isUsedSkill = true;
+            return true;
         }
-        return 1;
+        return false;
     }
 
     @Override
     public void adaptationToArea(int idOfArea) {
         switch (idOfArea) {
-            case 0: break;
-            case 1:
+            case 0 -> {
+                health = 260;
+                energy = 260;
+            }
+            case 1 -> {
                 health = 270;
                 energy = 295;
-                break;
-            case 2:
+            }
+            case 2 -> {
                 health = 245;
                 energy = 262;
-                break;
-            case 3:
+            }
+            case 3 -> {
                 health = 266;
                 energy = 270;
-                break;
-            default:
-                throw new IllegalStateException("Unexpected id of area: " + idOfArea);
+            }
+            default -> throw new IllegalStateException("Unexpected id of area: " + idOfArea);
         }
     }
 

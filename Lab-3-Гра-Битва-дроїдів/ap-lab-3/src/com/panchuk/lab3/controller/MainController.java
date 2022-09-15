@@ -2,6 +2,7 @@ package com.panchuk.lab3.controller;
 
 import com.panchuk.lab3.Randomizer;
 import com.panchuk.lab3.Validator;
+import com.panchuk.lab3.Writer;
 import com.panchuk.lab3.model.*;
 
 public class MainController {
@@ -19,10 +20,6 @@ public class MainController {
         }
     }
 
-    public static void replayBattle() {
-        FileController.readFile();
-    }
-
     private static void battleOneVSOne() {
         System.out.println("\n\t\t\t\t\t\t\t~~~ START ~~~");
 
@@ -37,14 +34,14 @@ public class MainController {
         FileController.createFile(battle.getUserDroid().getName().toLowerCase()
                 + "_vs_"
                 + battle.getEnemyDroid().getName().toLowerCase());
-        FileController.writeToFile(battle.getInfo().toString());
+        FileController.writeToFile(Writer.info.toString());
     }
 
     private static Droid chooseYourDroid() {
 
         System.out.println("\t\t\tAll droids");
         printListOfDroids();
-        System.out.println("\nChoose your droid for battle: ");
+        System.out.print("\nChoose your droid for battle: ");
         int idDroid = Validator.inputValue(1, 5);
 
         return selectDroidByID(idDroid);

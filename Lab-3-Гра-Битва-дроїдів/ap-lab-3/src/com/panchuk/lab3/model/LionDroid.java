@@ -10,58 +10,63 @@ public class LionDroid extends Droid {
     }
 
     @Override
-    public void giveDamage(int type, Droid other) {
+    public void giveDamage(int type, Droid other, boolean isBot) {
         if (type == 1) {
             this.energy -= 24;
-            other.getDamage(Randomizer.getRadomInt(20, 30));
+            other.getDamage(Randomizer.getRadomInt(20, 30), isBot);
         } else {
             this.energy -= 10;
-            other.getDamage(Randomizer.getRadomInt(5, 15));
+            other.getDamage(Randomizer.getRadomInt(5, 15), isBot);
         }
     }
 
     @Override
-    public void getDamage(int damage) {
-        if (useSkill() != 0)
-            this.health -= damage;
+    public void getDamage(int damage, boolean isBot) {
+        if (!isUsedSkill) {
+            if (isBot) {
+                if (Randomizer.getRadomInt(1, 2) == 1) isUsedSkill = true;
+                else health -= damage;
+            } else {
+                if (!useSkill())
+                    this.health -= damage;
+            }
+        }
 
         if (this.isAlive())
             health += 3;
     }
 
 
-
-
-    public int useSkill() {
-        if (!isUsedSkill) {
-            System.out.print("You can use your skill - 'skip damage'." +
-                    "\nInput '1' if you want, '2' - otherwise: ");
-            if (Validator.inputValue(1, 2) == 1) {
-                isUsedSkill = true;
-                return 0;
-            }
+    public boolean useSkill() {
+        System.out.print("You can use your skill - 'skip damage'." +
+                "\nInput '1' if you want, '2' - otherwise: ");
+        if (Validator.inputValue(1, 2) == 1) {
+            isUsedSkill = true;
+            return true;
         }
-        return 1;
+        return false;
     }
 
     @Override
     public void adaptationToArea(int idOfArea) {
         switch (idOfArea) {
-            case 0: break;
-            case 1:
+            case 0 -> {
+                health = 180;
+                energy = 210;
+            }
+            case 1 -> {
                 health = 190;
                 energy = 225;
-                break;
-            case 2:
+            }
+            case 2 -> {
                 health = 177;
                 energy = 216;
-                break;
-            case 3:
+            }
+            case 3 -> {
                 health = 182;
                 energy = 222;
-                break;
-            default:
-                throw new IllegalStateException("Unexpected id of area: " + idOfArea);
+            }
+            default -> throw new IllegalStateException("Unexpected id of area: " + idOfArea);
         }
     }
 

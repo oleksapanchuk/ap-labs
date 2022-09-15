@@ -13,8 +13,8 @@ public abstract class Droid {
         this.isUsedSkill = isUsedSkill;
     }
 
-    public abstract void giveDamage(int type, Droid other);
-    public abstract void getDamage(int damage);
+    public abstract void giveDamage(int type, Droid other, boolean isBot);
+    public abstract void getDamage(int damage, boolean isBot);
     public boolean isAlive() {
         return health > 0 && energy > 0;
     }

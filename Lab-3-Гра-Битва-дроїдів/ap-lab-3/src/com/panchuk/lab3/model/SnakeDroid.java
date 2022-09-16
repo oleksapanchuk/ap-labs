@@ -1,7 +1,7 @@
 package com.panchuk.lab3.model;
 
-import com.panchuk.lab3.Randomizer;
-import com.panchuk.lab3.Validator;
+import com.panchuk.lab3.controller.Randomizer;
+import com.panchuk.lab3.controller.Validator;
 
 public class SnakeDroid extends Droid {
 
@@ -14,11 +14,11 @@ public class SnakeDroid extends Droid {
 
         if (type == 1) {
             this.energy -= 65;
-            other.getDamage(Randomizer.getRadomInt(30, 70), isBot);
+            other.getDamage(Randomizer.getRadomInt(30, 70), !isBot);
         } else {
             this.energy -= 12;
             this.health -= 8;
-            other.getDamage(Randomizer.getRadomInt(1, 25), isBot);
+            other.getDamage(Randomizer.getRadomInt(1, 25), !isBot);
         }
     }
 

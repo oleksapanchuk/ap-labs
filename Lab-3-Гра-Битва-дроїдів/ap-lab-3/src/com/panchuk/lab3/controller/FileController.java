@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class FileController {
     private static Scanner scanner;
@@ -24,7 +25,7 @@ public class FileController {
             File battleFile = new File("files/" + fName + ".txt");
 
             if (battleFile.createNewFile()) {
-                System.out.println("File created: " + battleFile.getName());
+                System.out.println("\nFile created: " + battleFile.getName());
                 filePath = "files/" + fName + ".txt";
             } else {
                 System.out.println("File '" + fName + "' already exists.");
@@ -72,11 +73,14 @@ public class FileController {
 
             while (scanner.hasNextLine()) {
                 System.out.println(scanner.nextLine());
+                TimeUnit.MILLISECONDS.sleep(250);
             }
             scanner.close();
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 

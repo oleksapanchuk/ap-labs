@@ -1,8 +1,5 @@
 package com.panchuk.lab3.controller;
 
-import com.panchuk.lab3.Randomizer;
-import com.panchuk.lab3.Validator;
-import com.panchuk.lab3.Writer;
 import com.panchuk.lab3.model.*;
 
 public class MainController {

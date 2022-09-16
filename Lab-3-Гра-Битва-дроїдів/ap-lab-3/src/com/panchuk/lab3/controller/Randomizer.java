@@ -1,4 +1,4 @@
-package com.panchuk.lab3;
+package com.panchuk.lab3.controller;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package com.panchuk.lab3;
+package com.panchuk.lab3.controller;
 
 public class Writer {
     public static final StringBuilder info = new StringBuilder();

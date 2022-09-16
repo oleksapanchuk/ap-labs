@@ -1,7 +1,7 @@
 package com.panchuk.lab3.model;
 
-import com.panchuk.lab3.Randomizer;
-import com.panchuk.lab3.Validator;
+import com.panchuk.lab3.controller.Randomizer;
+import com.panchuk.lab3.controller.Validator;
 
 public class CrocodileDroid extends Droid {
     public CrocodileDroid() {

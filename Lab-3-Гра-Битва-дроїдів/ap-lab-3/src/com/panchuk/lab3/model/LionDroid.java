@@ -1,7 +1,7 @@
 package com.panchuk.lab3.model;
 
-import com.panchuk.lab3.Randomizer;
-import com.panchuk.lab3.Validator;
+import com.panchuk.lab3.controller.Randomizer;
+import com.panchuk.lab3.controller.Validator;
 
 public class LionDroid extends Droid {
 
@@ -13,10 +13,10 @@ public class LionDroid extends Droid {
     public void giveDamage(int type, Droid other, boolean isBot) {
         if (type == 1) {
             this.energy -= 24;
-            other.getDamage(Randomizer.getRadomInt(20, 30), isBot);
+            other.getDamage(Randomizer.getRadomInt(20, 30), !isBot);
         } else {
             this.energy -= 10;
-            other.getDamage(Randomizer.getRadomInt(5, 15), isBot);
+            other.getDamage(Randomizer.getRadomInt(5, 15), !isBot);
         }
     }
 

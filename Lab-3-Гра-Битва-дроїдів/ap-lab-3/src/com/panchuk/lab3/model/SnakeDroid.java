@@ -75,6 +75,7 @@ public class SnakeDroid extends Droid {
     @Override
     public int printMenuDroid() {
         System.out.print("""
+                
                 Choose variant of damage:\s
                 \t\t\t\t\t1 - snakebite (30 - 70)d -65e
                 \t\t\t\t\t2 - choke     (1 - 25)d  -12e -8h

@@ -75,6 +75,7 @@ public class ScorpionDroid extends Droid {
     @Override
     public int printMenuDroid() {
         System.out.print("""
+                
                 Choose variant of damage:\s
                 \t\t\t\t\t1 - bite (50 - 60)d -55e -10h
                 \t\t\t\t\t2 - hit  (4 - 10)d   -8e

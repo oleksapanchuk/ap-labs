@@ -9,18 +9,31 @@ public class BattleController {
     private final Droid enemyDroid;
     private final int area;
 
+    /**
+     * Battle Controller constructor
+     */
     public BattleController(Droid userDroid, Droid enemyDroid, int area) {
         this.userDroid = userDroid;
         this.enemyDroid = enemyDroid;
         this.area = area;
     }
 
-    public void initBattle() {
+    /**
+     * initBattle method gives the characteristics of the droid
+     * depending on its type and the battle area
+     */
+    private void initBattle() {
         userDroid.adaptationToArea(area);
         enemyDroid.adaptationToArea(area);
     }
 
-    public void runBattle() {
+    /**
+     * runBattle - main method of the controller that triggers
+     * the execution of battle rounds
+     * <p>
+     * method invokes roundRunner method that execute each round
+     */
+    public int runBattle() {
         int[] totalScore = new int[NUM_ROUNDS];
         int kRound = 0;
 
@@ -35,12 +48,16 @@ public class BattleController {
             Writer.writerAndPrinter("\n----------------------------------------------------------------------------\n");
         }
 
-        getWinner(totalScore);
+        return getWinner(totalScore);
     }
 
+    /**
+     * roundRunner performs each fight of the round
+     *
+     * @return integer - id of winner 2 - draw, 1 - user won, 2 - enemy won
+     */
     private static int roundRunner(Droid user, Droid enemy) {
         int kFight = 0;
-        System.out.println(user.isAlive() + " " + enemy.isAlive());
         while (user.isAlive() && enemy.isAlive()) {
 
             Writer.writerAndPrinter("\n\n\t --- Fight " + (++kFight) + "\n");
@@ -61,7 +78,13 @@ public class BattleController {
         return -1;
     }
 
-    public void getWinner(int[] total) {
+    /**
+     * getWinner determines the winner
+     *
+     * @param total array with result in each round
+     * @return integer 0 - draw, 1 - user won, 2 - enemy won
+     */
+    public int getWinner(int[] total) {
         int userScore = 0;
         int enemyScore = 0;
 
@@ -86,16 +109,22 @@ public class BattleController {
 
         if (userScore == enemyScore) {
             Writer.writerAndPrinter("\n\n\t\tDRAW - friendship won\n");
+            return 0;
         } else {
             Writer.writerAndPrinter("\n\nABSOLUTE CHAMPION is ");
 
-            if (userScore > enemyScore) Writer.writerAndPrinter(userDroid.getName() + "\n");
-            else Writer.writerAndPrinter(enemyDroid.getName() + "\n");
+            if (userScore > enemyScore) {
+                Writer.writerAndPrinter(userDroid.getName() + "\n");
+                return 1;
+            } else {
+                Writer.writerAndPrinter(enemyDroid.getName() + "\n");
+                return 2;
+            }
         }
     }
 
     /**
-     * method print current data about droids
+     * method prints current data about droids
      *
      * @param user  user droid
      * @param enemy enemy droid
@@ -108,10 +137,16 @@ public class BattleController {
                 "\t\t\t\t\t\t\t\t" + String.format("%3d", enemy.getEnergy()));
     }
 
+    /**
+     * User droid getter
+     */
     public Droid getUserDroid() {
         return userDroid;
     }
 
+    /**
+     * Enemy droid getter
+     */
     public Droid getEnemyDroid() {
         return enemyDroid;
     }

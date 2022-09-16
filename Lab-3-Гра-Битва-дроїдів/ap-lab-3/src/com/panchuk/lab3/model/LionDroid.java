@@ -73,6 +73,7 @@ public class LionDroid extends Droid {
     @Override
     public int printMenuDroid() {
         System.out.print("""
+                
                 Choose variant of damage:\s
                 \t\t\t\t\t1 - bite (20 - 30)d -24e
                 \t\t\t\t\t2 - hit  (5 - 15)d  -10e

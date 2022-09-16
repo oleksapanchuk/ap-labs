@@ -76,6 +76,7 @@ public class SharkDroid extends Droid {
     @Override
     public int printMenuDroid() {
         System.out.print("""
+                
                 Choose variant of damage:\s
                 \t\t\t\t\t1 - bite (35 - 40)d -45e
                 \t\t\t\t\t2 - hit  (10 - 17)d -14e -3h

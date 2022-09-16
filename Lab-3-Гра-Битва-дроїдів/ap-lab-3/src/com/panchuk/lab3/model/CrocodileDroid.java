@@ -13,11 +13,11 @@ public class CrocodileDroid extends Droid {
         if (type == 1) {
             this.health -= 15;
             this.energy -= 40;
-            other.getDamage(Randomizer.getRadomInt(20, 50), isBot);
+            other.getDamage(Randomizer.getRadomInt(20, 50), !isBot);
         } else {
             this.health -= 8;
             this.energy -= 20;
-            other.getDamage(22, isBot);
+            other.getDamage(22, !isBot);
         }
 
         if (!isUsedSkill) {
@@ -25,13 +25,13 @@ public class CrocodileDroid extends Droid {
                 if (Randomizer.getRadomInt(1, 2) == 1) {
                     this.health -= 15;
                     this.energy -= 50;
-                    other.getDamage(45, true);
+                    other.getDamage(45, false);
                 }
             } else {
                 if (useSkill()) {
                     this.health -= 15;
                     this.energy -= 50;
-                    other.getDamage(45, false);
+                    other.getDamage(45, true);
                 }
             }
         }
@@ -81,6 +81,7 @@ public class CrocodileDroid extends Droid {
     @Override
     public int printMenuDroid() {
         System.out.print("""
+                
                 Choose variant of damage:\s
                 \t\t\t\t\t1 - bite (20 - 50)d -40e -10h
                 \t\t\t\t\t2 - hit  22d        -20e  -8h

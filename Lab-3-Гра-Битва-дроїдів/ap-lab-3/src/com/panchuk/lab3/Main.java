@@ -3,8 +3,16 @@ package com.panchuk.lab3;
 import com.panchuk.lab3.controller.FileController;
 import com.panchuk.lab3.controller.MainController;
 
+/**
+ * DROID BATTLE
+ *
+ * @author Oleksandr Panchuk
+ */
 public class Main {
 
+    /**
+     * main method of program
+     */
     public static void main(String[] args) {
 
         int checker = MainController.printStartMenu();
@@ -15,7 +23,6 @@ public class Main {
             MainController.mainMenu();
 
         } else if (checker == 2) {
-            System.out.println("Replay battle!");
 
             FileController.readFile();
 

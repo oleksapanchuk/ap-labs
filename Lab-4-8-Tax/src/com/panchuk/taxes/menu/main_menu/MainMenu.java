@@ -1,4 +1,9 @@
-package com.panchuk.taxes.menu;
+package com.panchuk.taxes.menu.main_menu;
+
+import com.panchuk.taxes.menu.ExitCommand;
+import com.panchuk.taxes.menu.MenuItem;
+import com.panchuk.taxes.menu.sign_in_menu.SignInCommand;
+import com.panchuk.taxes.menu.sign_in_menu.SignUpCommand;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

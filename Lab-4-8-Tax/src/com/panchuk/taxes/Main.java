@@ -1,6 +1,6 @@
 package com.panchuk.taxes;
 
-import com.panchuk.taxes.menu.MainMenu;
+import com.panchuk.taxes.menu.sign_in_menu.SignInMenu;
 
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        MainMenu menu = new MainMenu();
+        SignInMenu menu = new SignInMenu();
         while (true) {
             menu.execute(scanner.nextLine());
         }

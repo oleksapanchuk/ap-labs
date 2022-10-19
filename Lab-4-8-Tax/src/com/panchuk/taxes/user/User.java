@@ -1,11 +1,13 @@
 package com.panchuk.taxes.user;
 
-import com.panchuk.taxes.Validator;
+import com.panchuk.taxes.menu.main_menu.ExitCommand;
+import com.panchuk.taxes.menu.MenuItem;
 import com.panchuk.taxes.tax.Tax;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.regex.Pattern;
+import java.util.Map;
 
 public class User {
     private String fullName;
@@ -13,19 +15,48 @@ public class User {
     private String email;
     private String password;
     private String dateOfBirth;
-    private boolean isAdmin;
     private List<Tax> taxes;
 
-    public User(String fullName, String login, String email, String password, String dateOfBirth, boolean isAdmin) {
+    public User(String fullName, String login, String email, String password, String dateOfBirth) {
         this.fullName = fullName;
         this.login = login;
         this.email = email;
         this.password = password;
         this.dateOfBirth = dateOfBirth;
-        this.isAdmin = isAdmin;
         taxes = new ArrayList<>();
     }
 
+    public Map<String, MenuItem> getAvailableCommands() {
+        Map<String, MenuItem> mI = new HashMap<>();
+
+        mI.put("exit", new ExitCommand());
+
+        return mI;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public List<Tax> getTaxes() {
+        return taxes;
+    }
 
     @Override
     public String toString() {
@@ -34,32 +65,6 @@ public class User {
                 "\nemail = " + email +
                 "\npassword = " + password +
                 "\ndateOfBirth = " + dateOfBirth +
-                "\nisAdmin = " + isAdmin +
                 "\ntaxes = " + taxes;
-    }
-
-
-    public static void main(String[] args) {
-        User user1 = new User(
-                "Panchuk Oleksandr",
-                "o1eksandr",
-                "oleksandrpanchuk@gmail.com",
-                "123",
-                "12.03.2004",
-                true
-        );
-
-        User user2 = new User(
-                Validator.inputString("name", Validator.VALID_FULL_NAME),
-                Validator.inputString("login", Validator.VALID_LOGIN),
-                Validator.inputString("email", Validator.VALID_EMAIL),
-                Validator.inputString("password", Validator.VALID_PASSWORD),
-                Validator.inputString("data of birth", Validator.VALID_DATE),
-                false
-        );
-
-        System.out.println(user1);
-        System.out.println("------------------------------------------------------------------");
-        System.out.println(user2);
     }
 }

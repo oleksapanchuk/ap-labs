@@ -14,6 +14,7 @@ public class Main {
     public static void main(String[] args) {
         SignInMenu menu = new SignInMenu();
         while (true) {
+            System.out.println(menu);
             menu.execute(scanner.nextLine());
         }
     }

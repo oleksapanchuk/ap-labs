@@ -1,0 +1,26 @@
+[
+  {
+    "fullName": "Panchuk Oleksandr",
+    "login": "o1eksandr",
+    "email": "oleksandrpanchuk@gmail.com",
+    "password": "GG00..ss",
+    "dateOfBirth": "12/03/2004",
+    "taxes": []
+  },
+  {
+    "fullName": "Anna Mamchur",
+    "login": "annna",
+    "email": "anha@gmail.com",
+    "password": "465",
+    "dateOfBirth": "31/08/2004",
+    "taxes": []
+  },
+  {
+    "fullName": "Sasha Kaplun",
+    "login": "sashenkaaaa",
+    "email": "olexandr4@gmail.com",
+    "password": "Fdas1003qw.1",
+    "dateOfBirth": "13/05/2004",
+    "taxes": []
+  }
+]

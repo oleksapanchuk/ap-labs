@@ -1,6 +1,6 @@
 package com.panchuk.taxes.menu.sign_in_menu;
 
-import com.panchuk.taxes.menu.ExitCommand;
+import com.panchuk.taxes.menu.main_menu.ExitCommand;
 import com.panchuk.taxes.menu.MenuItem;
 
 import java.util.LinkedHashMap;
@@ -18,5 +18,13 @@ public class SignInMenu {
 
     public void execute(String command) {
         menuItems.getOrDefault(command, () -> System.out.print("Incorrect command! Try again: ")).execute();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Sign in menu:");
+        menuItems.forEach((nameCommand, menuItem) -> sb.append("\n\t").append(nameCommand));
+        sb.append("\nYour choice: ");
+        return sb.toString();
     }
 }

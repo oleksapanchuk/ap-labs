@@ -1,0 +1,19 @@
+1
+111
+First Name
+Last Name
+Patronymic
+some address
+0987654321
+4444
+diagnosis
+3
+2
+3
+stroke
+4
+1000
+5000
+5
+7
+-1

@@ -1,0 +1,85 @@
+
+-------------- Round 1 -------------------------------------------------
+
+
+	 --- Fight 1
+			Lion Droid			VS			Snake Droid
+Health: 	   177								245
+Energy: 	   216								262
+
+	 --- Fight 2
+			Lion Droid			VS			Snake Droid
+Health: 	   180								220
+Energy: 	   192								197
+
+	 --- Fight 3
+			Lion Droid			VS			Snake Droid
+Health: 	   183								202
+Energy: 	   182								185
+
+	 --- Fight 4
+			Lion Droid			VS			Snake Droid
+Health: 	   186								176
+Energy: 	   158								173
+
+	 --- Fight 5
+			Lion Droid			VS			Snake Droid
+Health: 	   189								168
+Energy: 	   148								108
+
+	 --- Fight 6
+			Lion Droid			VS			Snake Droid
+Health: 	   192								134
+Energy: 	   124								 96
+
+	 --- Fight 7
+			Lion Droid			VS			Snake Droid
+Health: 	   195								115
+Energy: 	   100								 31
+
+	 --- Fight 8
+			Lion Droid			VS			Snake Droid
+Health: 	   198								101
+Energy: 	    90								 19
+
+	 --- Fight 9
+			Lion Droid			VS			Snake Droid
+Health: 	   201								 73
+Energy: 	    66								  7
+----------------------------------------------------------------------------
+
+-------------- Round 2 -------------------------------------------------
+
+
+	 --- Fight 1
+			Lion Droid			VS			Snake Droid
+Health: 	   177								245
+Energy: 	   216								262
+
+	 --- Fight 2
+			Lion Droid			VS			Snake Droid
+Health: 	   180								226
+Energy: 	   192								197
+
+	 --- Fight 3
+			Lion Droid			VS			Snake Droid
+Health: 	   183								218
+Energy: 	   182								132
+
+	 --- Fight 4
+			Lion Droid			VS			Snake Droid
+Health: 	   186								193
+Energy: 	   158								120
+
+	 --- Fight 5
+			Lion Droid			VS			Snake Droid
+Health: 	   189								186
+Energy: 	   148								 55
+----------------------------------------------------------------------------
+
+
+					~~~ Total result ~~~
+Round 1: 		Win - Lion
+Round 2: 		Win - Lion
+
+ABSOLUTE CHAMPION is Lion

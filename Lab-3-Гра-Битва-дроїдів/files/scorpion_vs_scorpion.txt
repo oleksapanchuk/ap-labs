@@ -1,0 +1,45 @@
+
+-------------- Round 1 -------------------------------------------------
+
+
+	 --- Fight 1
+			Scorpion Droid			VS			Scorpion Droid
+Health: 	   104								104
+Energy: 	   190								190
+
+	 --- Fight 2
+			Scorpion Droid			VS			Scorpion Droid
+Health: 	    59								 57
+Energy: 	   135								135
+----------------------------------------------------------------------------
+
+-------------- Round 2 -------------------------------------------------
+
+
+	 --- Fight 1
+			Scorpion Droid			VS			Scorpion Droid
+Health: 	   104								104
+Energy: 	   190								190
+
+	 --- Fight 2
+			Scorpion Droid			VS			Scorpion Droid
+Health: 	   102								 59
+Energy: 	   190								182
+
+	 --- Fight 3
+			Scorpion Droid			VS			Scorpion Droid
+Health: 	   113								 67
+Energy: 	   182								174
+
+	 --- Fight 4
+			Scorpion Droid			VS			Scorpion Droid
+Health: 	    62								 13
+Energy: 	   127								119
+----------------------------------------------------------------------------
+
+
+					~~~ Total result ~~~
+Round 1: 		Win - Scorpion
+Round 2: 		Draw
+
+ABSOLUTE CHAMPION is Scorpion

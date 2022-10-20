@@ -1,0 +1,363 @@
+
+
+------------ BOT BATTLE 1 --------------------------------
+
+
+-------- Round 1 ------------------------------------------
+
+
+	 --- Fight 1
+			Lion Droid			VS			Shark Droid
+Health: 	   180								167
+Energy: 	   206								185
+
+	 --- Fight 2
+			Lion Droid			VS			Shark Droid
+Health: 	   183								165
+Energy: 	   196								171
+
+	 --- Fight 3
+			Lion Droid			VS			Shark Droid
+Health: 	   186								235
+Energy: 	   186								157
+
+	 --- Fight 4
+			Lion Droid			VS			Shark Droid
+Health: 	   189								234
+Energy: 	   176								112
+
+	 --- Fight 5
+			Lion Droid			VS			Shark Droid
+Health: 	   192								231
+Energy: 	   166								 67
+
+	 --- Fight 6
+			Lion Droid			VS			Shark Droid
+Health: 	   195								215
+Energy: 	   142								 22
+
+	 --- Fight 7
+			Lion Droid			VS			Shark Droid
+Health: 	   198								210
+Energy: 	   132								-23
+----------------------------------------------------------
+
+-------- Round 2 ------------------------------------------
+
+
+	 --- Fight 1
+			Lion Droid			VS			Shark Droid
+Health: 	   180								153
+Energy: 	   192								185
+
+	 --- Fight 2
+			Lion Droid			VS			Shark Droid
+Health: 	   183								131
+Energy: 	   168								140
+
+	 --- Fight 3
+			Lion Droid			VS			Shark Droid
+Health: 	   186								129
+Energy: 	   158								126
+
+	 --- Fight 4
+			Lion Droid			VS			Shark Droid
+Health: 	   189								109
+Energy: 	   134								 81
+
+	 --- Fight 5
+			Lion Droid			VS			Shark Droid
+Health: 	   192								101
+Energy: 	   124								 36
+
+	 --- Fight 6
+			Lion Droid			VS			Shark Droid
+Health: 	   195								 80
+Energy: 	   100								 22
+
+	 --- Fight 7
+			Lion Droid			VS			Shark Droid
+Health: 	   198								 75
+Energy: 	    90								-23
+----------------------------------------------------------
+
+-------- Round 3 ------------------------------------------
+
+
+	 --- Fight 1
+			Lion Droid			VS			Shark Droid
+Health: 	   180								167
+Energy: 	   206								185
+
+	 --- Fight 2
+			Lion Droid			VS			Shark Droid
+Health: 	   183								159
+Energy: 	   196								140
+
+	 --- Fight 3
+			Lion Droid			VS			Shark Droid
+Health: 	   186								158
+Energy: 	   186								126
+
+	 --- Fight 4
+			Lion Droid			VS			Shark Droid
+Health: 	   189								135
+Energy: 	   162								112
+
+	 --- Fight 5
+			Lion Droid			VS			Shark Droid
+Health: 	   192								116
+Energy: 	   138								 67
+
+	 --- Fight 6
+			Lion Droid			VS			Shark Droid
+Health: 	   195								 97
+Energy: 	   114								 53
+
+	 --- Fight 7
+			Lion Droid			VS			Shark Droid
+Health: 	   198								 94
+Energy: 	   104								 39
+
+	 --- Fight 8
+			Lion Droid			VS			Shark Droid
+Health: 	   201								 89
+Energy: 	    94								 25
+
+	 --- Fight 9
+			Lion Droid			VS			Shark Droid
+Health: 	   204								 83
+Energy: 	    84								 11
+
+	 --- Fight 10
+			Lion Droid			VS			Shark Droid
+Health: 	   207								 82
+Energy: 	    74								-34
+----------------------------------------------------------
+
+-------- Round 4 ------------------------------------------
+
+
+	 --- Fight 1
+			Lion Droid			VS			Shark Droid
+Health: 	   180								150
+Energy: 	   192								216
+
+	 --- Fight 2
+			Lion Droid			VS			Shark Droid
+Health: 	   183								132
+Energy: 	   168								202
+
+	 --- Fight 3
+			Lion Droid			VS			Shark Droid
+Health: 	   186								112
+Energy: 	   144								157
+
+	 --- Fight 4
+			Lion Droid			VS			Shark Droid
+Health: 	   189								103
+Energy: 	   134								143
+
+	 --- Fight 5
+			Lion Droid			VS			Shark Droid
+Health: 	   192								104
+Energy: 	   124								 98
+
+	 --- Fight 6
+			Lion Droid			VS			Shark Droid
+Health: 	   195								100
+Energy: 	   114								 53
+
+	 --- Fight 7
+			Lion Droid			VS			Shark Droid
+Health: 	   198								 79
+Energy: 	    90								 39
+
+	 --- Fight 8
+			Lion Droid			VS			Shark Droid
+Health: 	   201								 80
+Energy: 	    80								 -6
+----------------------------------------------------------
+
+-------- Round 5 ------------------------------------------
+
+
+	 --- Fight 1
+			Lion Droid			VS			Shark Droid
+Health: 	   180								167
+Energy: 	   206								185
+
+	 --- Fight 2
+			Lion Droid			VS			Shark Droid
+Health: 	   183								149
+Energy: 	   182								140
+
+	 --- Fight 3
+			Lion Droid			VS			Shark Droid
+Health: 	   186								144
+Energy: 	   172								126
+
+	 --- Fight 4
+			Lion Droid			VS			Shark Droid
+Health: 	   189								139
+Energy: 	   162								112
+
+	 --- Fight 5
+			Lion Droid			VS			Shark Droid
+Health: 	   192								141
+Energy: 	   152								 67
+
+	 --- Fight 6
+			Lion Droid			VS			Shark Droid
+Health: 	   195								137
+Energy: 	   142								 22
+
+	 --- Fight 7
+			Lion Droid			VS			Shark Droid
+Health: 	   198								137
+Energy: 	   132								-23
+----------------------------------------------------------
+
+
+					~~~ Total result ~~~
+Round 1: 		Win - Lion
+Round 2: 		Win - Lion
+Round 3: 		Win - Lion
+Round 4: 		Win - Lion
+Round 5: 		Win - Lion
+
+ABSOLUTE CHAMPION is Lion
+
+
+------------ BOT BATTLE 2 --------------------------------
+
+
+-------- Round 1 ------------------------------------------
+
+
+	 --- Fight 1
+			Shark Droid			VS			Crocodile Droid
+Health: 	   135								259
+Energy: 	   145								210
+
+	 --- Fight 2
+			Shark Droid			VS			Crocodile Droid
+Health: 	   120								218
+Energy: 	   100								190
+
+	 --- Fight 3
+			Shark Droid			VS			Crocodile Droid
+Health: 	   180								180
+Energy: 	    55								170
+
+	 --- Fight 4
+			Shark Droid			VS			Crocodile Droid
+Health: 	   127								124
+Energy: 	    10								100
+
+	 --- Fight 5
+			Shark Droid			VS			Crocodile Droid
+Health: 	    85								 99
+Energy: 	    -4								 60
+----------------------------------------------------------
+
+-------- Round 2 ------------------------------------------
+
+
+	 --- Fight 1
+			Shark Droid			VS			Crocodile Droid
+Health: 	    92								236
+Energy: 	   145								140
+
+	 --- Fight 2
+			Shark Droid			VS			Crocodile Droid
+Health: 	    11								199
+Energy: 	   131								 50
+
+	 --- Fight 3
+			Shark Droid			VS			Crocodile Droid
+Health: 	   -38								173
+Energy: 	   117								 10
+----------------------------------------------------------
+
+-------- Round 3 ------------------------------------------
+
+
+	 --- Fight 1
+			Shark Droid			VS			Crocodile Droid
+Health: 	   135								258
+Energy: 	   145								210
+
+	 --- Fight 2
+			Shark Droid			VS			Crocodile Droid
+Health: 	    79								227
+Energy: 	   131								140
+
+	 --- Fight 3
+			Shark Droid			VS			Crocodile Droid
+Health: 	    64								188
+Energy: 	    86								120
+
+	 --- Fight 4
+			Shark Droid			VS			Crocodile Droid
+Health: 	    32								169
+Energy: 	    72								 80
+
+	 --- Fight 5
+			Shark Droid			VS			Crocodile Droid
+Health: 	    14								152
+Energy: 	    58								 60
+
+	 --- Fight 6
+			Shark Droid			VS			Crocodile Droid
+Health: 	   -79								 88
+Energy: 	    13								-30
+----------------------------------------------------------
+
+-------- Round 4 ------------------------------------------
+
+
+	 --- Fight 1
+			Shark Droid			VS			Crocodile Droid
+Health: 	    97								246
+Energy: 	   145								160
+
+	 --- Fight 2
+			Shark Droid			VS			Crocodile Droid
+Health: 	    77								225
+Energy: 	   131								120
+
+	 --- Fight 3
+			Shark Droid			VS			Crocodile Droid
+Health: 	    59								209
+Energy: 	   117								100
+
+	 --- Fight 4
+			Shark Droid			VS			Crocodile Droid
+Health: 	    -6								175
+Energy: 	   103								 10
+----------------------------------------------------------
+
+-------- Round 5 ------------------------------------------
+
+
+	 --- Fight 1
+			Shark Droid			VS			Crocodile Droid
+Health: 	    82								265
+Energy: 	   176								140
+
+	 --- Fight 2
+			Shark Droid			VS			Crocodile Droid
+Health: 	     0								231
+Energy: 	   162								 50
+----------------------------------------------------------
+
+
+					~~~ Total result ~~~
+Round 1: 		Win - Crocodile
+Round 2: 		Win - Crocodile
+Round 3: 		Draw
+Round 4: 		Win - Crocodile
+Round 5: 		Win - Crocodile
+
+ABSOLUTE CHAMPION is Crocodile
